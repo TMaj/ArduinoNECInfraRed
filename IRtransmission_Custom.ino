@@ -21,8 +21,9 @@
 #define BACK 6
 #define BACK_RIGHT 7
 
-#define ON 1
+#define FORWARD 1
 #define OFF 0
+#define BACKWARD 2
 
 int table[80];
 int x = 0;
@@ -56,54 +57,55 @@ void setWheelsState(int state)
    case 0xFF30CF:
    {
     WHEELS_STATE = FORWARD_LEFT;
-    ENGINE_STATE = ON;
+    ENGINE_STATE = FORWARD;
     break; 
    }
    case 0xFF18E7:
    {
     WHEELS_STATE = FORWARD;
-    ENGINE_STATE = ON;
+    ENGINE_STATE = FORWARD;
     break; 
    }
    case 0xFF7A85:
    {
     WHEELS_STATE = FORWARD_RIGHT;
-    ENGINE_STATE = ON;
+    ENGINE_STATE = FORWARD;
     break; 
    }
    case 0xFF10EF:
    {
     WHEELS_STATE = LEFT;
-    ENGINE_STATE = ON;
+    ENGINE_STATE = FORWARD;
     break; 
    }
    case 0xFF5AA5:
    {
     WHEELS_STATE = RIGHT;
-    ENGINE_STATE = ON;
+    ENGINE_STATE = FORWARD;
     break; 
    }
    case 0xFF42BD:
    {
     WHEELS_STATE = BACK_LEFT;
-    ENGINE_STATE = ON;
+    ENGINE_STATE = BACKWARD;
     break; 
    }
    case 0xFF4AB5:
    {
     WHEELS_STATE = BACK;
-    ENGINE_STATE = ON;
+    ENGINE_STATE = BACKWARD;
     break; 
    }
    case 0xFF52AD:
    {
     WHEELS_STATE = BACK_RIGHT;
-    ENGINE_STATE = ON;
+    ENGINE_STATE = BACKWARD;
     break; 
    }
    case 0xFFFFFFFF:
    {
-    ENGINE_STATE = ON;
+    WHEELS_STATE = WHEELS_STATE;
+    ENGINE_STATE = ENGINE_STATE;
     break; 
    }      
   }
